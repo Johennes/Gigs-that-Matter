@@ -1,4 +1,4 @@
-jquery-lastfm
+jquery.lastfm
 =============
 
 A jQuery plugin for convenient access to the Last.fm API
