@@ -20,16 +20,19 @@ which are discussed in detail below.
 ## Getting User Information
 
 To acquire information about a Last.fm user you can use the
-`getUserInfo` function.
+`getUserInfo` function
 
 ```javascript
-lastfm.getUserInfo('some-username', function(user) {
-  // ...
-});
+lastfm.getUserInfo(user, callback);
 ```
 
-The user information object is passed back to you in a callback function
-and contains the following properties:
+with the parameters:
+
+* `user` - The Last.fm username
+* `callback` - A callback function with a single parameter `user`
+that contains a user info object.
+
+The user information object contains the following properties:
 
 * `id` - The user's ID
 * `name` - the username
@@ -38,5 +41,25 @@ The `getUserInfo` function can be used to check if a specific Last.fm
 username exists.
 
 ## Getting a User's Top Artists
+
+The list of a user's favorite artists can be loaded by calling the
+`getTopArtists` function
+
+```javascript
+lastfm.getTopArtists(user, maxArtists, callback);
+```
+
+with the parameters:
+
+* `user` - The Last.fm username
+* `maxArtists` - The maximum number of artists to return
+* `callback` - A callback function with a single parameter `artists`
+that contains an array of artist objects. The array is sorted with the
+most favorite artist at the lowest index.
+
+Each artist object possesses the properties
+
+* `mbid` - The artist's MusicBrainz identifier
+* `name` - The artist's name
 
 ## Getting Upcoming Events of an Artist
