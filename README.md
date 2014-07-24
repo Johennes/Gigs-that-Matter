@@ -30,12 +30,12 @@ with the parameters:
 
 * `user` - The Last.fm username
 * `callback` - A callback function with a single parameter `user`
-that contains a user info object.
+that contains a user info object
 
 The user information object contains the following properties:
 
 * `id` - The user's ID
-* `name` - the username
+* `name` - The username
 
 The `getUserInfo` function can be used to check if a specific Last.fm
 username exists.
