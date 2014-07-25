@@ -77,16 +77,16 @@ property contains an array of event objects.
 A user object encapsulates a specific Last.fm user and exhibits the
 following properties:
 
-* `id` | `[string]` - The user's ID
-* `name` | `[string]` - The Last.fm username
+* `id` `[string]` - The user's ID
+* `name` `[string]` - The Last.fm username
 
 ### Artist
 
 An artist object describes a particular Last.fm artist and comprises of
 the properties:
 
-* `mbid` - The artist's MusicBrainz identifier
-* `name` - The artist's name
+* `mbid` `[string]` - The artist's MusicBrainz identifier
+* `name` `[string]` - The artist's name
 
 ### Venue
 
