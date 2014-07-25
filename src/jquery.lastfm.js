@@ -37,12 +37,16 @@
     var User = function(jsonData) {
       this.id   = jsonData.id;
       this.name = jsonData.name;
+      
+      console.log(this);
     }
     
     
     var Artist = function(jsonData) {
       this.mbid = jsonData.mbid;
       this.name = jsonData.name;
+      
+      console.log(this);
     }
     
     
@@ -55,6 +59,8 @@
       this.country   = jsonData.location.country;
       this.latitude  = jsonData.location['geo:point']['geo:lat'];
       this.longitude = jsonData.location['geo:point']['geo:long'];
+      
+      console.log(this);
     }
     
     
@@ -74,6 +80,8 @@
       }
       
       this.venue = new Venue(jsonData.venue);
+      
+      console.log(this);
     }
     
     

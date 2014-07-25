@@ -77,8 +77,8 @@ property contains an array of event objects.
 A user object encapsulates a specific Last.fm user and exhibits the
 following properties:
 
-* `id` - The user's ID
-* `name` - The Last.fm username
+* `id` - The user's ID `[string]`
+* `name` - The Last.fm username `[string]`
 
 ### Artist
 
