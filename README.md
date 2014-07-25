@@ -107,11 +107,14 @@ the fields:
 An event object represents a particular concert played by one or more
 artists. It contains the following properties:
 
-* `id` - The event's ID
-* `name` - The event's name
-* `startDate` - The starting date
-* `endDate` - The ending date
-* `canceled` - Whether the event has been canceled or not
-* `headliner` - The lead artist
-* `artists` - An array of all artists performing at the event
-* `venue` - The event's location
+* `id` `[string]` - The event's ID
+* `name` `[string]` - The event's name
+* `startDate` `[Date]` - The starting date
+* `endDate` `[Date]` - The ending date
+* `canceled` `[boolean]`  - Whether the event has been canceled or not
+* `headliner` `[string]` - The lead artist. Note that this is not an
+artist object but merely the headliner's name as string.
+* `artists` `[Array]` - An array of all artists performing at the event.
+Note that the array contains only the artists' names but not full artist
+objects.
+* `venue` `[Venue]`  - The event's location

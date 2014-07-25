@@ -55,8 +55,6 @@
       this.country   = jsonData.location.country;
       this.latitude  = parseFloat(jsonData.location['geo:point']['geo:lat']);
       this.longitude = parseFloat(jsonData.location['geo:point']['geo:long']);
-      
-      console.log(this);
     }
     
     
@@ -65,7 +63,7 @@
       this.name      = jsonData.title;
       this.startDate = new Date(jsonData.startDate);
       this.endDate   = new Date(jsonData.endDate);
-      this.canceled  = jsonData.cancelled;
+      this.canceled  = (jsonData.cancelled == 0) ? false : true;
       
       this.headliner = jsonData.artists.headliner;
       
@@ -76,8 +74,6 @@
       }
       
       this.venue = new Venue(jsonData.venue);
-      
-      console.log(this);
     }
     
     
