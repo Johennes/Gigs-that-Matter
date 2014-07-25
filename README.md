@@ -58,17 +58,17 @@ To get upcoming events of a specific artist, you may invoke the
 `getEvents` functions
 
 ```javascript
-lastfm.getEvents(artist, callback);
+lastfm.getEvents(mbid, callback);
 ```
 
 with the parameters:
 
-* `artist` - The artist object for which events shall be loaded
-* `callback` - A callback function with a single parameter `eventData`
-which is an object with two properties - `artist` and `events`. The
-`artist` field holds the initially specified `artist` object and can be
-used to distinguish concurrent calls to the function. The `events`
-property contains an array of event objects.
+* `mbid` - The MusicBrainz identifier of the artist for which events
+shall be loaded
+* `callback` - A callback function with two parameters, `mbid` and
+`events`. The `mbid` parameter holds the initially specified MusicBrainz
+identifier and can be used to distinguish concurrent calls to the
+function. The `events` parameter contains an array of event objects.
 
 ## Data Types
 

@@ -118,10 +118,10 @@
     };
     
     
-    this.getEvents = function(artist, callback) {
+    this.getEvents = function(mbid, callback) {
       var URL = buildURL({
         'method': 'artist.getEvents',
-        'mbid'  : artist.mbid
+        'mbid'  : mbid
       });
       
       $.getJSON(URL, function(data) {
@@ -141,10 +141,7 @@
           });
         }
         
-        callback({
-          artist: artist,
-          events: events
-        });
+        callback(mbid, events);
         
         return;
       });

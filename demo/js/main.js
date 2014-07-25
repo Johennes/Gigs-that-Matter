@@ -5,6 +5,7 @@
     var map                 = null;
     var markers             = new Array();
     var infoWindow          = null;
+    var artists             = null;
     var numArtists          = null;
     var numArtistsProcessed = null;
     var sizeReceiver        = null;
@@ -189,8 +190,6 @@
         //$('#status').html('Processing...');
         
         validateUserName(function(usernameValid) {
-            
-            
             if (!usernameValid) {
                 //$('#status').html('Invalid username.');
                 return;
@@ -207,18 +206,20 @@
     }
     
     
-    function handleTopArtists(artists) {
-        numArtists          = artists.length;
+    function handleTopArtists(topArtists) {
+        artists             = {};
+        numArtists          = topArtists.length;
         numArtistsProcessed = 0;
         
-        $.each(artists, function(i, artist) {
-            lastfm.getEvents(artist, handleEvents);
+        $.each(topArtists, function(i, artist) {
+            artists[artist.mbid] = artist;
+            lastfm.getEvents(artist.mbid, handleEvents);
         });
     }
     
     
-    function handleEvents(eventData) {
-        eventData.events.sort(function(event1, event2) {
+    function handleEvents(mbid, events) {
+        events.sort(function(event1, event2) {
             var rc = event1.venue.country.localeCompare(event2.venue.country);
             
             if (rc == 0) {
@@ -228,14 +229,14 @@
             return rc;
         });
         
-        $.each(eventData.events, function(i, event) {
+        $.each(events, function(i, event) {
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(event.venue.latitude, event.venue.longitude),
                 map: map,
                 title: event.name + ' @ ' + event.venue.name
             });
             
-            marker.artist = eventData.artist;
+            marker.artist = artists[mbid];
             marker.event  = event;
             
             event.marker = marker;
@@ -245,11 +246,11 @@
             google.maps.event.addListener(marker, 'click', handleMarkerClick);
         });
         
-        if (eventData.events.length > 0) {
+        if (events.length > 0) {
             $('.artist_list_placeholder').hide();
             
             var artistItem = $('<li>');
-            artistItem.html(eventData.artist.name);
+            artistItem.html(artists[mbid].name);
             artistItem.addClass('artist_list_item');
             $('#artist_list').append(artistItem);
             
@@ -261,7 +262,7 @@
                 
                 var country = null;
                 
-                $.each(eventData.events, function(i, event) {
+                $.each(events, function(i, event) {
                     if (! country || country.localeCompare(event.venue.country) != 0) {
                         var countryItem = $('<li>');
                         var countryWrapper = $('<div>');
