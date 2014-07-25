@@ -30,12 +30,7 @@ with the parameters:
 
 * `user` - The Last.fm username
 * `callback` - A callback function with a single parameter `user`
-that contains a user info object
-
-The user information object contains the following properties:
-
-* `id` - The user's ID
-* `name` - The username
+that contains a user object
 
 The `getUserInfo` function can be used to check if a specific Last.fm
 username exists.
@@ -57,11 +52,6 @@ with the parameters:
 that contains an array of artist objects. The array is sorted with the
 most favorite artist at the lowest index.
 
-Each artist object possesses the properties
-
-* `mbid` - The artist's MusicBrainz identifier
-* `name` - The artist's name
-
 ## Getting Upcoming Events of an Artist
 
 To get upcoming events of a specific artist, you may invoke the
@@ -79,3 +69,49 @@ which is an object with two properties - `artist` and `events`. The
 `artist` field holds the initially specified `artist` object and can be
 used to distinguish concurrent calls to the function. The `events`
 property contains an array of event objects.
+
+## Data Types
+
+### User
+
+A user object encapsulates a specific Last.fm user and exhibits the
+following properties:
+
+* `id` - The user's ID
+* `name` - The Last.fm username
+
+### Artist
+
+An artist object describes a particular Last.fm artist and comprises of
+the properties:
+
+* `mbid` - The artist's MusicBrainz identifier
+* `name` - The artist's name
+
+### Venue
+
+Venue objects identify locations at which events are hold. The contain
+the fields:
+
+* `id` - The venue's ID
+* `name` - The venue's name
+* `street` - The street address
+* `zip` - The postal code
+* `city` - The city in which the venue is located
+* `country` - The country in which the venue is located
+* `latitude` - The location's geographical latitude
+* `longitude` - The location's geographical longitude
+
+### Event
+
+An event object represents a particular concert played by one or more
+artists. It contains the following properties:
+
+* `id` - The event's ID
+* `name` - The event's name
+* `startDate` - The starting date
+* `endDate` - The ending date
+* `canceled` - Whether the event has been canceled or not
+* `headliner` - The lead artist
+* `artists` - An array of all artists performing at the event
+* `venue` - The event's location
