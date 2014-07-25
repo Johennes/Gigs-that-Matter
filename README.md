@@ -93,14 +93,14 @@ the properties:
 Venue objects identify locations at which events are hold. The contain
 the fields:
 
-* `id` - The venue's ID
-* `name` - The venue's name
-* `street` - The street address
-* `zip` - The postal code
-* `city` - The city in which the venue is located
-* `country` - The country in which the venue is located
-* `latitude` - The location's geographical latitude
-* `longitude` - The location's geographical longitude
+* `id` `[string]` - The venue's ID
+* `name` `[string]` - The venue's name
+* `street` `[string]` - The street address
+* `zip` `[string]` - The postal code
+* `city` `[string]` - The city in which the venue is located
+* `country` `[string]` - The country in which the venue is located
+* `latitude` `[float]` - The location's geographical latitude
+* `longitude` `[float]` - The location's geographical longitude
 
 ### Event
 

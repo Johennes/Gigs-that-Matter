@@ -37,16 +37,12 @@
     var User = function(jsonData) {
       this.id   = jsonData.id;
       this.name = jsonData.name;
-      
-      console.log(this);
     }
     
     
     var Artist = function(jsonData) {
       this.mbid = jsonData.mbid;
       this.name = jsonData.name;
-      
-      console.log(this);
     }
     
     
@@ -57,8 +53,8 @@
       this.zip       = jsonData.location.postalcode;
       this.city      = jsonData.location.city;
       this.country   = jsonData.location.country;
-      this.latitude  = jsonData.location['geo:point']['geo:lat'];
-      this.longitude = jsonData.location['geo:point']['geo:long'];
+      this.latitude  = parseFloat(jsonData.location['geo:point']['geo:lat']);
+      this.longitude = parseFloat(jsonData.location['geo:point']['geo:long']);
       
       console.log(this);
     }
