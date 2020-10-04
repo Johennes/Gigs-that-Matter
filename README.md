@@ -1,8 +1,6 @@
 jquery.lastfm
 =============
 
-*Mirrors: [GitHub] ~ [GitLab]*
-
 A jQuery plugin for convenient access to the Last.fm API
 
 # Usage
@@ -118,6 +116,3 @@ artist object but merely the headliner's name as string.
 Note that the array contains only the artists' names but not full artist
 objects.
 * `venue` `[Venue]`  - The event's location
-
-[GitHub]: https://github.com/Johennes/jquery.lastfm
-[GitLab]: https://gitlab.com/cherrypicker/jquery-lastfm
